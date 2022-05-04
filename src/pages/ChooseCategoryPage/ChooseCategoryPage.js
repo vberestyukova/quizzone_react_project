@@ -9,28 +9,42 @@ export class ChooseCategoryPage extends Component{
         super(props);
 
         this.state = {
-            response: {}
+            category: {},
+            difficulty : {}
         };
 
         this.clickFunc = this.clickFunc.bind(this);
 
     }
 
-    async clickFunc() {
+    // async clickFunc() {
+    clickFunc()
+        {
+            const category = document.getElementById('category').value;
+            const difficulty = document.getElementById('difficulty').value;
+            localStorage.setItem("category", category);
+            localStorage.setItem("difficulty", difficulty);
+            window.location.href="/quiz_game";
+        }
+        // const category = document.getElementById('category').value;
+        // const difficulty = document.getElementById('difficulty').value;
+        // await this.setState({
+        //     category: {category},
+        //     difficulty : {difficulty}
+        // })
 
-        const category = document.getElementById('category').value;
-        const difficulty = document.getElementById('difficulty').value;
-        // console.log(category, ' ', difficulty);
-        await fetch(
-            `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}`
-        ).then((r) => r.json()).then(response => {
-            this.setState(response);
-        });
+        // document.location.href = '/quiz_game';
+
+        // await fetch(
+        //     `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}`
+        // ).then((r) => r.json()).then(response => {
+        //     this.setState(response);
+        // });
         // const quiz = await fetch(
         //     `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}`
         // ).then((r) => r.json()).then()
 
-    }
+    // }
 
 
     render() {
@@ -52,7 +66,7 @@ export class ChooseCategoryPage extends Component{
                     <option value="medium">medium</option>
                     <option value="hard">hard</option>
                 </select>
-                <Link to='/quiz_game'><button onClick={this.clickFunc}>Начать</button></Link>
+            <button onClick={this.clickFunc}>Начать</button>
             </div>
         )
     }
