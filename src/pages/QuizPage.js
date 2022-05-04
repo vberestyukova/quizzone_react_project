@@ -7,8 +7,9 @@ export class QuizPage extends Component{
         super(props);
 
         this.state = {
-            question: {},
-            answer: {}
+            // quiz: {}
+            // question: {},
+            // answer: {}
         };
         this.getCategory = this.getCategory.bind(this);
         this.makeGame = this.makeGame.bind(this);
@@ -23,43 +24,43 @@ export class QuizPage extends Component{
     }
 
     async makeGame(category, difficulty) {
-        return await fetch(
+        await fetch(
             `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}`
-        ).then((r) => r.json());
+        ).then((r) => r.json()).then(r => localStorage.setItem("json", JSON.stringify(r)));
     }
 
-    componentWillUpdate(nextProps, nextState) {
-        console.log('componentWillUpdate');
-    }
-    componentDidUpdate(prevProps, prevState) {
-        console.log('componentDidUpdate')
-    }
-    shouldComponentUpdate(nextProps, nextState) {
-        if (this.state.question !== nextState.question) {
-            return false
-        }
-        return true
-    }
     render() {
         const [category, difficulty] = this.getCategory();
-        const game = this.makeGame(category, difficulty);
+        this.makeGame(category, difficulty);
         // let doneGame = Promise.resolve(Promise.resolve(game)).then(quiz => console.log((quiz.results[0].question)));
-        Promise.resolve(Promise.resolve(game)).then(quiz => {
-            const questionCase = [];
-            const correct_answer = [];
-            const incorrect_answers = [];
-            for (let i = 0; i < 10; i++) {
-                questionCase.push(quiz.results[i].question);
-                correct_answer.push(quiz.results[i].correct_answer);
-                incorrect_answers.push(quiz.results[i].incorrect_answers);
-            }
-            this.setState({
-                question: {questionCase},
-                answer: {correct_answer}
-            })
-        });
+        // Promise.resolve(Promise.resolve(game)).then(quiz => {
+            // const questionCase = [];
+            // const correct_answer = [];
+            // const incorrect_answers = [];
+            // for (let i = 0; i < 10; i++) {
+            //     questionCase.push(quiz.results[i].question);
+            //     correct_answer.push(quiz.results[i].correct_answer);
+            //     incorrect_answers.push(quiz.results[i].incorrect_answers);
+            // }
+            // this.setState({
+            //     quiz: quiz.results
+            // })
+        // });
 
-        // console.log(this.state);
+        const quiz = localStorage.getItem('json');
+        const quizInfo = JSON.parse(quiz).results;
+        // console.log(quizInfo);
+        const questionCase = [];
+        const correct_answerCase = [];
+        const incorrect_answersCase = [];
+        // console.log(quizInfo);
+        // console.log(quizInfo.results.correct_answer);
+        for (let i = 0; i < 10; i++) {
+            // questionCase.push((quizInfo[i]).question);
+            // correct_answerCase.push((quizInfo.results[i]).correct_answer);
+            // incorrect_answersCase.push((quizInfo.results[i]).incorrect_answers);
+        }
+
         return (
             <div className='page_settings'>
                 <div className='quiz'>
