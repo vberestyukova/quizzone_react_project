@@ -1,0 +1,28 @@
+.quiz {
+    transition-duration: 1s;
+}
+
+.quiz_question_input {
+    /*position: relative;*/
+    width: 700px;
+    height: 100px;
+position: center;
+    background: #C4C4C4;
+    opacity: 0.5;
+    border-radius: 20px;
+}
+
+.quiz {
+    cursor: pointer;
+    box-sizing: border-box;
+    position: relative;
+    width: 900px;
+    height: 550px;
+    font-size: 54px;
+    background: white;
+    color:black;
+    margin: 60px auto 30px;
+    border-radius: 30px;
+    /*margin-top: 100px;*/
+    -webkit-transition: 0.8s ease;
+}

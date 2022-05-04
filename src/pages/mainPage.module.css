@@ -1,0 +1,23 @@
+.logo {
+    font-family: "Roboto";
+    color: #FFFFFF;
+    opacity: 80%;
+    font-size: 150px;
+    -webkit-transition: 0.5s ease;
+}
+
+.logo:hover {
+    opacity: 100%;
+    font-size: 160px;
+    transition-duration: 1s;
+
+}
+
+.main_body {
+    display: flex;
+    flex-direction: column;
+
+    text-align: center;
+    padding-top: 158px;
+
+}

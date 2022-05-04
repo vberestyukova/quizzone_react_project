@@ -1,0 +1,21 @@
+.button_style {
+    cursor: pointer;
+    box-sizing: border-box;
+    position: relative;
+    width: 145px;
+    height: 80px;
+    font-size: 32px;
+    font-family: Roboto;
+    background: black;
+    color:#FFFFFF;
+    opacity: 0.75;
+    border-radius: 15px;
+    margin-top: 100px;
+    -webkit-transition: 0.8s ease;
+
+}
+
+.button_style:hover {
+    opacity: 1;
+    transition-duration: 1s
+}
