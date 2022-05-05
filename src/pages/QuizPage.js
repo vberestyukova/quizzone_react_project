@@ -50,17 +50,17 @@ export class QuizPage extends Component{
         const quiz = localStorage.getItem('json');
         const quizInfo = JSON.parse(quiz).results;
 
-        const questionCase = [];
-        const correct_answerCase = [];
-        const incorrect_answersCase = [];
-        for (let i = 0; i < 10; i++) {
-            questionCase.push((quizInfo[i]).question);
-            correct_answerCase.push((quizInfo[i]).correct_answer);
-            incorrect_answersCase.push((quizInfo[i]).incorrect_answers);
-        }
-        console.log(correct_answerCase);
-        console.log(correct_answerCase);
-        console.log(incorrect_answersCase);
+        // const questionCase = [];
+        // const correct_answerCase = [];
+        // const incorrect_answersCase = [];
+        // for (let i = 0; i < 10; i++) {
+        //     questionCase.push((quizInfo[i]).question);
+        //     correct_answerCase.push((quizInfo[i]).correct_answer);
+        //     incorrect_answersCase.push((quizInfo[i]).incorrect_answers);
+        // }
+        // console.log(correct_answerCase);
+        // console.log(correct_answerCase);
+        // console.log(incorrect_answersCase);
         return (
             <div className='page_settings'>
                 <div className='quiz'>
