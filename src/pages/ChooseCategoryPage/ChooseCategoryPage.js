@@ -20,10 +20,10 @@ export class ChooseCategoryPage extends Component{
     // async clickFunc() {
     clickFunc()
         {
-            const category = document.getElementById('category').value;
-            const difficulty = document.getElementById('difficulty').value;
-            localStorage.setItem("category", category);
-            localStorage.setItem("difficulty", difficulty);
+            // const category = document.getElementById('category').value;
+            // const difficulty = document.getElementById('difficulty').value;
+            // localStorage.setItem("category", category);
+            // localStorage.setItem("difficulty", difficulty);
             window.location.href="/quiz_game";
         }
         // const category = document.getElementById('category').value;
@@ -57,7 +57,7 @@ export class ChooseCategoryPage extends Component{
                     <option value="11">Film</option>
                     <option value="12">Music</option>
                     <option value="13">Musicals & Theatres</option>
-                    <option value="10">Books</option>
+
 
                 </select>
                 <select id="difficulty">
