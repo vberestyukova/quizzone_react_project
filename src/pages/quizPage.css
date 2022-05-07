@@ -1,36 +1,97 @@
-.quiz {
-    transition-duration: 1s;
+.container{
+    /*min-height: 100vh;*/
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: calc(10px + 2vmin);
 }
 
-.quiz_question_input {
-    /*position: relative;*/
-    width: 700px;
-    height: 100px;
-position: center;
-    background: #C4C4C4;
-    opacity: 0.5;
-    border-radius: 20px;
+
+.questionClass{
+    background-color: white;
+    border-radius: 10px;
+    border:1px solid gray;
+    padding: 16px;
+    margin: 10px auto;
+    min-width: 400px;
+    max-width: 900px;
+    text-align: center;
+    color: #282c34;
+
 }
 
-.quiz {
+.button-overall{
+    column-count: 2;
+    padding: 20px 450px;
+}
+
+.normal-button{
+    background-color: white;
+    width:380px;
+    height:80px;
+    padding: 8px;
+    margin:24px;
+
+    font-weight: bolder;
+    font-size: larger;
+    border-radius: 10px;
+    outline: none;
+    border:none;
+    justify-content: center;
+    -webkit-transition: 0.5s ease;
+}
+
+.normal-button:hover {
+    transition: transform 2s ease-in-out;
+}
+
+.green-button{
+    background-color: #83ee83;
+    opacity: 0.7;
+}
+
+.red-button{
+    background-color: #ec1c1c;
+    opacity: 0.7;
+}
+
+.normal-button:hover{
+    transform: scale(1.1);
+    transition: transform 0.5s ease-in-out;
+    cursor:pointer;
+}
+
+.next-question{
     cursor: pointer;
     box-sizing: border-box;
     position: relative;
-    width: 900px;
-    height: 550px;
-    font-size: 54px;
+    width: 145px;
+    height: 80px;
+    font-size: 32px;
+    font-family: Roboto;
     background: white;
     color:black;
-    margin: 60px auto 30px;
-    border-radius: 30px;
-    /*margin-top: 100px;*/
+    opacity: 0.75;
+    border-radius: 15px;
+
     -webkit-transition: 0.8s ease;
 }
 
-.quiz_name {
-    font-size: 24px;
+.next-question:hover{
+    opacity: 1;
+    transition-duration: 1s
 }
 
-.quiz_title {
-    font-size: 20px;
+.score {
+    align-items: center;
+    font-size: 35px;
+    text-align: center;
+    margin-top: 5rem;
 }
+
+
+
+

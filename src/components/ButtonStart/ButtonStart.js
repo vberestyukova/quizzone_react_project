@@ -6,7 +6,6 @@ export const ButtonStart = () => {
     return (
         <button
             className={'button_style'}
-            // type={this.props.type}
         >
             START
         </button>
@@ -19,9 +18,18 @@ export const ButtonClose = () => {
     return (
         <button
             className={'button_style'}
-            // type={this.props.type}
         >
             Назад
+        </button>
+    );
+}
+
+export const ButtonAgain = () => {
+    return (
+        <button
+            className={'button_style'}
+        >
+            Еще раз
         </button>
     );
 }

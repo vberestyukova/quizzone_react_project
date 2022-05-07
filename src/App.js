@@ -1,12 +1,13 @@
 import './App.css';
 import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom";
-import { QuizPage } from "./pages/QuizPage"
+import QuizPage from "./pages/QuizPage"
 import { MainPage } from "./pages/MainPage"
 import { NotFoundPage } from "./pages/NotFoundPage"
 import { AboutPage } from "./pages/AboutPage";
 import { Header } from "./components/Header";
 import { CSSTransition } from 'react-transition-group';
 import { ChooseCategoryPage } from "./pages/ChooseCategoryPage/ChooseCategoryPage"
+import Catalog from "./pages/Catalog";
 
 // const express = require('express');
 // const config = require('config');
@@ -62,6 +63,7 @@ const routes = [
                         <Route path="*" element={<NotFoundPage />} />
                         <Route exact path="/about" element={<AboutPage />} />
                         <Route  path="/choose_quiz" element={<ChooseCategoryPage />} />
+                        <Route  path="/catalog" element={<Catalog />} />
                         </Routes>
                 </section>
                 <footer className='footer'>© QuizZone 2022</footer>

@@ -19,30 +19,30 @@ export class ChooseCategoryPage extends Component{
 
     // async clickFunc() {
     clickFunc()
-        {
-            // const category = document.getElementById('category').value;
-            // const difficulty = document.getElementById('difficulty').value;
-            // localStorage.setItem("category", category);
-            // localStorage.setItem("difficulty", difficulty);
-            window.location.href="/quiz_game";
-        }
-        // const category = document.getElementById('category').value;
-        // const difficulty = document.getElementById('difficulty').value;
-        // await this.setState({
-        //     category: {category},
-        //     difficulty : {difficulty}
-        // })
+    {
+        const category = document.getElementById('category').value;
+        const difficulty = document.getElementById('difficulty').value;
+        localStorage.setItem("category", category);
+        localStorage.setItem("difficulty", difficulty);
+        window.location.href="/quiz_game";
+    }
+    // const category = document.getElementById('category').value;
+    // const difficulty = document.getElementById('difficulty').value;
+    // await this.setState({
+    //     category: {category},
+    //     difficulty : {difficulty}
+    // })
 
-        // document.location.href = '/quiz_game';
+    // document.location.href = '/quiz_game';
 
-        // await fetch(
-        //     `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}`
-        // ).then((r) => r.json()).then(response => {
-        //     this.setState(response);
-        // });
-        // const quiz = await fetch(
-        //     `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}`
-        // ).then((r) => r.json()).then()
+    // await fetch(
+    //     `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}`
+    // ).then((r) => r.json()).then(response => {
+    //     this.setState(response);
+    // });
+    // const quiz = await fetch(
+    //     `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}`
+    // ).then((r) => r.json()).then()
 
     // }
 
@@ -52,12 +52,16 @@ export class ChooseCategoryPage extends Component{
             <div>
                 <select id="category">
                     <option value="hide">Category</option>
-                    <option value="9">General Knowledge</option>
                     <option value="10">Books</option>
                     <option value="11">Film</option>
                     <option value="12">Music</option>
                     <option value="13">Musicals & Theatres</option>
-
+                    <option value="14">Television</option>
+                    <option value="15">Video Games</option>
+                    <option value="25">Art</option>
+                    <option value="23">History</option>
+                    <option value="26">Celebrities</option>
+                    <option value="27">Animals</option>
 
                 </select>
                 <select id="difficulty">
@@ -66,7 +70,7 @@ export class ChooseCategoryPage extends Component{
                     <option value="medium">medium</option>
                     <option value="hard">hard</option>
                 </select>
-            <button onClick={this.clickFunc}>Начать</button>
+                <button onClick={this.clickFunc}>Начать</button>
             </div>
         )
     }

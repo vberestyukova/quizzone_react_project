@@ -12,10 +12,9 @@ export const Header = () => {
                 <Link to="/" className='menu_title'>Главная</Link>
                 <Link to="/catalog" className='menu_title'>Каталог</Link>
                 <Link to="/about" className='menu_title'>О проекте</Link>
-                <Link to="/login" className='menu_title'>Вход</Link>
                 <Link to="/feedback" className='menu_title'>Обратная связь</Link>
-                <Link to="/quiz_game" className='menu_title'>QuizPage</Link>
-                <Link to="/choose_quiz" className='menu_title'>Choose</Link>
+                <Link to="/login" className='menu_title'>Вход</Link>
+
             </div>
             <div className="menu menu_links">
                 <a href="https://github.com/vberestyukova" target="_blank" className='menu_title_links github' />

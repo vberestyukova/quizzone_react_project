@@ -2,13 +2,13 @@
     font-family: "Roboto";
     color: #FFFFFF;
     opacity: 80%;
-    font-size: 150px;
+    font-size: 10rem;
     -webkit-transition: 0.5s ease;
 }
 
 .logo:hover {
     opacity: 100%;
-    font-size: 160px;
+    font-size: 12rem;
     transition-duration: 1s;
 
 }

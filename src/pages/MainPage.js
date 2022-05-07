@@ -11,7 +11,7 @@ export const MainPage = () => {
         return (
             <div className={styles.main_body}>
                 <div className={styles.logo}>QUIZZONE</div>
-                <Link to='/quiz_game'><ButtonStart /></Link>
+                <Link to='/catalog'><ButtonStart /></Link>
             </div>
         );
 };

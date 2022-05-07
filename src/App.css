@@ -31,15 +31,23 @@
   box-sizing: border-box;
   font-family: Roboto, sans-serif;
 }
-.body {
-  min-height: 730px;
-  margin-left: auto;
-  margin-right: auto;
+
+html {
   background-attachment: fixed;
-  background-image: url("../public/mainBackground.jpg");
+  background-image: url("../public/back.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+.body {
+  /*min-height: 730px;*/
+  /*margin-left: auto;*/
+  /*margin-right: auto;*/
+  /*background-attachment: fixed;*/
+  /*background-image: url("../public/back.jpg");*/
+  /*background-repeat: no-repeat;*/
+  /*background-position: center;*/
+  /*background-size: cover;*/
   display: flex;
   flex-direction: column;
   position: relative;
@@ -47,9 +55,6 @@
 
 .back {
   height: 100vh;
-
-
-
   background-size: cover;
   /*background-attachment: fixed;*/
 
@@ -63,7 +68,7 @@
 
 .App-header {
   position: relative;
-  width: 1019px;
+  /*width: 1019px;*/
   height: 242px;
   font-family: 'Roboto';
   font-style: normal;
@@ -114,11 +119,11 @@
 
 
 .menu_icon {
-  background-image: url("./menu_open_no_active.png");
-  background-position: 0 -6px;
+  background-image: url("../public/menu.png");
+  /*background-position: 0 -6px;*/
   background-repeat: no-repeat;
-  height: 68px;
-  width: 46px;
+  height: 75px;
+  width: 65px;
   padding-top: 10px;
   margin-left: 10px;
   -webkit-transition: width 2s, height 2s, background-color 2s, -webkit-transform 1s;
@@ -126,7 +131,7 @@
 }
 
 .menu_icon:hover {
-  background-image: url("./menu_open_active.png " );
+  /*background-image: url("./menu_open_active.png " );*/
   cursor: pointer;
   -webkit-transform: rotate(180deg);
   transition-duration: 0.5s
