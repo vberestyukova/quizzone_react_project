@@ -1,7 +1,5 @@
 import React from 'react'
 
-
-
 function Questionaire({handleAnswer, handleNestQuestion, showAnswers, data: {question, correct_answer, answers}}) {
     return (
         <>

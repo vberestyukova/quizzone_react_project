@@ -8,11 +8,14 @@ const handleAnswer = (difficulty, categoryId) => {
 }
 function CatalogItem( {categoryName, categoryId}) {
 
+    function setFavouriteQuiz() {
+        console.log()
+    }
     return (
         <>
                 <div className='card'>
                     <div className='card-header'>
-                        <div className='like'/>
+                        <div onClick={setFavouriteQuiz} className='like' id={categoryName}/>
                         <h2>{categoryName}</h2>
                     </div>
                     <div className='card-difficulty'>
