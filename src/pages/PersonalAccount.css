@@ -22,7 +22,13 @@
 }
 
 .account-rating {
-
+background-color: black;
+    border-radius: 20px;
+    color: #FFFFFF;
+    cursor: pointer;
+    width: max-content;
+    padding: 5px;
+    text-decoration: none;
 }
 
 .cards {

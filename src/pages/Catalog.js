@@ -1,22 +1,8 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./Catalog.css"
 import CatalogItem from "./CatalogItem";
+import Axios from "axios";
 
-
-// export const categories = new Map (
-//     [
-//         [10, 'Books'],
-//         [11, 'Film'],
-//         [12, 'Music'],
-//         [13, 'Musicals & Theatres'],
-//         [14, 'Television'],
-//         [15, 'Video Games'],
-//         [16, 'Board Games'],
-//         [17, 'Science and Nature'],
-//         [18, 'Computers'],
-//         [18, 'Mathematics'],
-//         [19, 'Mythology'],
-//     ]);
 export const categories = new Map (
     [
         ['Books', 10],
@@ -33,12 +19,20 @@ export const categories = new Map (
     ]);
 
 
-
-
-
 function Catalog() {
+
+    const login = localStorage.getItem('login');
+    const [favourite, setFavouriteCategory] = useState([]);
+    useEffect(() => {
+        Axios.get(`http://localhost:8080/users?login=${login}`).then(user => user.data).then(data => {
+            const favouriteCategories = data.favourite;
+            setFavouriteCategory(favouriteCategories);
+        })
+    }, [])
+
+    localStorage.setItem('favourite', favourite);
+
     let cards = [];
-    // let online = [];
     const keys = categories.keys();
     for (const key of keys) {
         let id = categories.get(key);
@@ -51,12 +45,6 @@ function Catalog() {
                 <div className='catalog-title'>Викторины</div>
                 <div className='card-list'>
                     {cards}
-                </div>
-            </div>
-            <div>
-                <div className='catalog-title'>Онлайн игры</div>
-                <div className='card-list'>
-                    {/*{online}*/}
                 </div>
             </div>
         </div>

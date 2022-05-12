@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useEffect, useRef, useState} from "react";
 import "./Catalog.css"
+import Axios from "axios";
 
 const handleAnswer = (difficulty, categoryId) => {
     localStorage.setItem('category', categoryId);
@@ -7,15 +8,33 @@ const handleAnswer = (difficulty, categoryId) => {
     window.location.href="/quiz_game";
 }
 function CatalogItem( {categoryName, categoryId}) {
-
-    function setFavouriteQuiz() {
-        console.log()
+    const myContainer = useRef(categoryName);
+    const login = localStorage.getItem('login');
+    const favourite = localStorage.getItem('favourite').split(',');
+    for (const category of favourite) {
+        if (myContainer.current.id === category) {
+            myContainer.current.classList.add('like-light');
+        }
     }
+
+    function setFavouriteQuiz(categoryName) {
+        if (myContainer.current.classList.contains('like-light')) {
+            myContainer.current.classList.remove('like-light');
+            console.log('like')
+        } else {
+            myContainer.current.classList.add('like-light');
+            Axios.post("http://127.0.0.1:8080/favourite", {
+                login: login,
+                favourite: categoryName}
+            ).then(response => console.log(response));}
+    }
+
+
     return (
         <>
                 <div className='card'>
                     <div className='card-header'>
-                        <div onClick={setFavouriteQuiz} className='like' id={categoryName}/>
+                        <div id={categoryName} className='like' ref={myContainer} onClick={() => setFavouriteQuiz(categoryName)}/>
                         <h2>{categoryName}</h2>
                     </div>
                     <div className='card-difficulty'>

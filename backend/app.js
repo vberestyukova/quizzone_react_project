@@ -46,21 +46,37 @@ app.post('/login', (req, res) => {
 })
 
 app.get('/users', (req, res) => {
-    console.log(req.query.login);
     Users.findOne({'login': req.query.login}, function(error, user) {
-        console.log(user);
+        // console.log(user);
         res.send(user);
     });
 })
 
 app.post('/statistic', (req, res) => {
-    console.log(req.body.score);
     Users.updateOne(
         {'login': req.body.login},
         {'$inc': {'score': req.body.score, 'quizCount': 1}},
         function(error, result) {
-                    res.send('');
-                });
+            res.send('');
+        });
+})
+
+app.get('/usersRating', (req, res) => {
+    Users.find({}, function(err, users){
+        if(err) return console.log(err);
+        res.send(users);
+    });
+})
+
+app.post('/favourite', (req, res) => {
+    Users.updateOne(
+        {'login': req.body.login},
+        {'$push': {'favourite': req.body.favourite}},
+        function(error, result) {
+            res.send('');
+            console.log(req.body.favourite)
+    });
+
 })
 
 mongoose.connect("mongodb+srv://lera:$bY6EQ5NN_i6YEE@cluster0.na0kd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",

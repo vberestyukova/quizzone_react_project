@@ -10,6 +10,7 @@ import Catalog from "./pages/Catalog";
 import Login from "./components/Login";
 import Registration from "./components/Registration";
 import PersonalAccountPage from "./pages/PersonalAccountPage";
+import Rating from "./pages/Rating";
 
 function App() {
       return (
@@ -26,6 +27,7 @@ function App() {
                         <Route path={"/login"} element={<Login />} />
                         <Route path={"/account"} element={<PersonalAccountPage />} />
                         <Route path={"/registration"} element={<Registration />} />
+                        <Route path={"/rating"} element={<Rating />} />
                         </Routes>
                 </section>
                 {/*<footer className='footer'>© QuizZone 2022</footer>*/}

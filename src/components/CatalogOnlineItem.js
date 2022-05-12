@@ -5,7 +5,7 @@ const handleAnswer = (difficulty, categoryId) => {
     localStorage.setItem('category', categoryId);
     localStorage.setItem('difficulty', difficulty);
 }
-function CatalogItem( {name, link, imgLink}) {
+function CatalogItem( {name, link}) {
 
     return (
         <>

@@ -4,33 +4,27 @@ import Axios from "axios";
 import "./PersonalAccount.css"
 import {Link} from "react-router-dom";
 import CatalogItem from "./CatalogItem";
+import {ButtonLogin, ButtonRating} from "../components/ButtonStart/ButtonStart";
 
 
 function PersonalAccountPage() {
     const [favouriteCategories, setFavourite] = useState([]);
-    const [favouriteView, show] = useState(false);
     const [score, showScore] = useState(0);
     const [quizCount, getQuizCount] = useState(0);
     const login = localStorage.getItem('login');
-    //  getInfoByAccount() {
-    //     const login = localStorage.getItem('login');
-    //     Axios.get(`http://localhost:8080/users?login=${login}`).then(user => {
-    //         // this.setState({login: user.data.login});
-    //         // this.setState(stat);
-    //     }).catch(function (error) {
-    //         alert(error);
-    //     });
-    // }
+
     useEffect(() => {
         Axios.get(`http://localhost:8080/users?login=${login}`).then(user => user.data).then(data => {
             const favouriteCategories = data.favourite;
-            const scoreNew = data.score;
-            if (scoreNew===undefined) showScore(0);
-            else showScore(scoreNew)
-            const quizCount = data.quizCount;
-            if (quizCount===undefined) showScore(0)
-            else getQuizCount(quizCount);
+            const scoreUser = data.score;
+            const quizCountUser = data.quizCount;
 
+            if (scoreUser===undefined) showScore(0);
+            else showScore(scoreUser)
+
+            // if (quizCountUser===undefined) showScore(0)
+            // else ;
+            getQuizCount(quizCountUser);
             setFavourite(favouriteCategories);
         })
     }, [])
@@ -40,6 +34,9 @@ function PersonalAccountPage() {
         let id = categories.get(key);
         cards.push(<CatalogItem categoryName={key} categoryId={id} key={id}/>);
     }
+
+    let rating = [];
+
 
 
         return ( favouriteCategories.length > 0 ? (
@@ -51,9 +48,10 @@ function PersonalAccountPage() {
                         {cards}
                     </div>
                 </div>
-                <div>Средний score {score/quizCount}</div>
+                <div>Средний score {Math.ceil(score/quizCount)}</div>
 
-                <div className='account-rating'>Рейтинг игроков</div>
+                <Link to='/rating'><ButtonRating /></Link>
+
             </div>
         ) :
                 <div className='account'>

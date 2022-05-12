@@ -11,6 +11,7 @@ export const Header = () => {
     function logOut() {
         localStorage.removeItem('login');
         setCount(count - 1);
+        document.location.href = '/';
     }
 
     return (

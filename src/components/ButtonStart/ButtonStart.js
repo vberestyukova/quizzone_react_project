@@ -34,6 +34,25 @@ export const ButtonAgain = () => {
     );
 }
 
+export const ButtonLogin = () => {
+    return (
+        <button
+            className={'button_style'}
+        >
+            ВОЙТИ
+        </button>
+    );
+}
 
+
+export const ButtonRating = () => {
+    return (
+        <button
+            className={'button_style'}
+        >
+            Рейтинг
+        </button>
+    );
+}
 
 
