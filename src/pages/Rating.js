@@ -8,7 +8,7 @@ function Rating() {
     const [rates, setRates] = useState([]);
 
     useEffect(() => {
-        Axios.get("http://localhost:8080/usersRating").then(user => user.data).then(rates => {
+        Axios.get("http://46.101.210.56:8080/usersRating").then(user => user.data).then(rates => {
 
             for (const user of rates) {
                 if (user.quizCount !== 0) {

@@ -47,7 +47,7 @@ useEffect(() => {
     if (currentIndex === 9) {
         if (localStorage.getItem('login') !== null) {
             let login = localStorage.getItem('login');
-            Axios.post("http://127.0.0.1:8080/statistic", {
+            Axios.post("http://46.101.210.56:8080/statistic", {
                 login: login,
                 score: score}).then(response => console.log(response));
         }

@@ -23,7 +23,7 @@ function CatalogItem( {categoryName, categoryId}) {
             console.log('like')
         } else {
             myContainer.current.classList.add('like-light');
-            Axios.post("http://127.0.0.1:8080/favourite", {
+            Axios.post("http://46.101.210.56:8080/favourite", {
                 login: login,
                 favourite: categoryName}
             ).then(response => console.log(response));}

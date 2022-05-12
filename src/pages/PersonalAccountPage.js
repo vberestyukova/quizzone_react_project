@@ -14,7 +14,7 @@ function PersonalAccountPage() {
     const login = localStorage.getItem('login');
 
     useEffect(() => {
-        Axios.get(`http://localhost:8080/users?login=${login}`).then(user => user.data).then(data => {
+        Axios.get(`http://46.101.210.56:8080/users?login=${login}`).then(user => user.data).then(data => {
             const favouriteCategories = data.favourite;
             const scoreUser = data.score;
             const quizCountUser = data.quizCount;

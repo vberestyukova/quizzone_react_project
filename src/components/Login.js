@@ -14,7 +14,7 @@ class Login extends Component{
         }
 
 
-        Axios.post("http://localhost:8080/login", loginData).then(() => {
+        Axios.post("http://46.101.210.56:8080/login", loginData).then(() => {
             localStorage.setItem('login', loginData.login);
             document.location.href='/';
         }).catch(function (error) {
