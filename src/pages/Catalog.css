@@ -1,7 +1,6 @@
 .catalog {
     display: flex;
     flex-direction: column;
-
 }
 
 .catalog-title {
@@ -14,11 +13,7 @@
 
 .card-list{
     display: flex;
-    /*padding: 5rem;*/
-
     width: 600px;
-
-    /*overflow-x: auto;*/
 
 }
 

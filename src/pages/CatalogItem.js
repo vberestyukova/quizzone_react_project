@@ -20,7 +20,10 @@ function CatalogItem( {categoryName, categoryId}) {
     function setFavouriteQuiz(categoryName) {
         if (myContainer.current.classList.contains('like-light')) {
             myContainer.current.classList.remove('like-light');
-            console.log('like')
+            Axios.post("http://46.101.210.56:8080/delete", {
+                login: login,
+                favourite: categoryName});
+
         } else {
             myContainer.current.classList.add('like-light');
             Axios.post("http://46.101.210.56:8080/favourite", {

@@ -38,26 +38,22 @@ function PersonalAccountPage() {
 
 
         return (
-            // favouriteCategories.length > 0 ? (
-            <div className='account'>
-                <div className='account-login' >Привет, {login}!</div>
-                <div className='account-login'>Избранные квизы</div>
-                <div>
-                    <div className='card-list'>
-                        {cards}
-                    </div>
+            <div>
+                <div  className='account'>
+                    <div className='account-login' >Привет, {login}!</div>
+                    <div className='account-login'>Твои избранные квизы:</div>
+                </div>
+                <div className='card-list cards-center'>
+                    {cards}
                 </div>
                 <div>Средний score {Math.ceil(score/quizCount)}</div>
+                <div className='button-rating'>
+                    <Link to='/rating'><ButtonRating /></Link>
+                </div>
 
-                <Link to='/rating'><ButtonRating /></Link>
 
             </div>
         )
-// :
-//                 <div className='account'>
-//                     <div className='account-login' >Loading...</div>
-//                 </div>
-//         )
 }
 
 export default PersonalAccountPage;

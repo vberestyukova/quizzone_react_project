@@ -22,3 +22,9 @@
     opacity: 1;
     transition-duration: 1s
 }
+
+
+.button_rating {
+    left: 35%;
+    width: 30%;
+}

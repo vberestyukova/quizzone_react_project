@@ -10,7 +10,10 @@ class Registration extends Component{
         console.log(event.target[1].value);
         let loginData ={
             login: event.target[0].value,
-            password: event.target[1].value
+            password: event.target[1].value,
+            score: 0,
+            quizCount: 0
+
         }
 
         Axios.post("http://46.101.210.56:8080/register", loginData)
@@ -28,9 +31,9 @@ class Registration extends Component{
             <div className='login'>
                 <form onSubmit={this.handleSubmit}>
                     <div id="login" className='text-area'>Login</div>
-                    <input type='text' ref={node => (this.inputLogin = node)} className='input'/>
+                    <input type='text' required ref={node => (this.inputLogin = node)} className='input'/>
                     <div id="password" className='text-area'>Password</div>
-                    <input type='text' ref={node => (this.inputPassword = node)} className='input'/>
+                    <input type='password' required ref={node => (this.inputPassword = node)} className='input'/>
                     <div className='text-area'>
                         <button type="submit" className='input-button'>Регистрация</button>
                     </div>

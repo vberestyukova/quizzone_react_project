@@ -48,7 +48,7 @@ export const ButtonLogin = () => {
 export const ButtonRating = () => {
     return (
         <button
-            className={'button_style'}
+            className={'button_style button_rating'}
         >
             Рейтинг
         </button>

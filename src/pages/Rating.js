@@ -33,8 +33,8 @@ function Rating() {
     }
 
     return (
-                <div className='account'>
-                    <div>Рейтинг игроков</div>
+                <div className='rating'>
+                    <div className='account-login'>Рейтинг игроков</div>
                     {preparedRates}
                 </div>
             )

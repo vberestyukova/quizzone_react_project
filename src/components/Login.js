@@ -27,9 +27,9 @@ class Login extends Component{
             <div className='login'>
                 <form onSubmit={this.handleSubmit}>
                     <div id="login" className='text-area'>Login</div>
-                    <input type='text' ref={node => (this.inputLogin = node)} className='input'/>
+                    <input type='text' required ref={node => (this.inputLogin = node)} className='input'/>
                     <div id="password" className='text-area'>Password</div>
-                    <input type='text' ref={node => (this.inputPassword = node)} className='input'/>
+                    <input type='password'  required ref={node => (this.inputPassword = node)} className='input'/>
                     <div>
                         <button type="submit" className='input-button'>Вход</button>
                     </div>

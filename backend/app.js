@@ -7,7 +7,15 @@ const Schema = mongoose.Schema;
 const app = express();
 const port = 8080;
 
-const userScheme = new Schema({_id: String, login: String, password: String, favourite: [String], score:Number, quizCount: Number}, {versionKey: false});
+const userScheme = new Schema({
+    _id: String,
+    login: String,
+    password: String,
+    favourite: [String],
+    score:Number,
+    quizCount: Number,
+    message: [String]},
+    {versionKey: false});
 const Users = mongoose.model("Users", userScheme);
 
 app.use(bodyParser.json());
@@ -74,8 +82,27 @@ app.post('/favourite', (req, res) => {
         {'$push': {'favourite': req.body.favourite}},
         function(error, result) {
             res.send('');
-            console.log(req.body.favourite)
     });
+
+})
+
+app.post('/delete', (req, res) => {
+    Users.updateOne(
+        {'login': req.body.login},
+        {'$pull': {'favourite': req.body.favourite}},
+        function(error, result) {
+            res.send('');
+        });
+
+})
+
+app.post('/message', (req, res) => {
+    Users.updateOne(
+        {'login': req.body.login},
+        {'$push': {'message': req.body.message}},
+        function(error, result) {
+            res.send('');
+        });
 
 })
 

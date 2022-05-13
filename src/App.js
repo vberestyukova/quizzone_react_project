@@ -11,6 +11,8 @@ import Login from "./components/Login";
 import Registration from "./components/Registration";
 import PersonalAccountPage from "./pages/PersonalAccountPage";
 import Rating from "./pages/Rating";
+import ContactPage from "./pages/ContactPage";
+
 
 function App() {
       return (
@@ -22,6 +24,7 @@ function App() {
                         <Route  path="/quiz_game" element={<QuizPage />} />
                         <Route path="*" element={<NotFoundPage />} />
                         <Route exact path="/about" element={<AboutPage />} />
+                        <Route exact path="/feedback" element={<ContactPage />} />
                         <Route  path="/choose_quiz" element={<ChooseCategoryPage />} />
                         <Route  path="/catalog" element={<Catalog />} />
                         <Route path={"/login"} element={<Login />} />
