@@ -34,7 +34,10 @@ app.post('/register', (req, res) => {
         if (user === null) {
             Users.insertMany([{
                 'login': req.body.login,
-                'password': req.body.password}], function() {console.log(`Добавлен пользователь ${req.body.login}`)});
+                'password': req.body.password,
+                'score': req.body.score,
+                'quizCount': req.body.quizCount,
+            }], function() {console.log(`Добавлен пользователь ${req.body.login}`)});
         }
     });
 

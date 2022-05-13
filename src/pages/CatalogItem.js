@@ -22,14 +22,18 @@ function CatalogItem( {categoryName, categoryId}) {
             myContainer.current.classList.remove('like-light');
             Axios.post("http://46.101.210.56:8080/delete", {
                 login: login,
-                favourite: categoryName});
+                favourite: categoryName}
+            ).then(response => console.log(response)).catch(function (error) {
+                console.log(error);
+            });
 
         } else {
             myContainer.current.classList.add('like-light');
             Axios.post("http://46.101.210.56:8080/favourite", {
                 login: login,
                 favourite: categoryName}
-            ).then(response => console.log(response));}
+            ).then(response => console.log(response));
+        }
     }
 
 
