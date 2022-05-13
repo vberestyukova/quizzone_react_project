@@ -41,7 +41,7 @@ function PersonalAccountPage() {
             // favouriteCategories.length > 0 ? (
             <div className='account'>
                 <div className='account-login' >Привет, {login}!</div>
-                <div>Избранные квизы</div>
+                <div className='account-login'>Избранные квизы</div>
                 <div>
                     <div className='card-list'>
                         {cards}

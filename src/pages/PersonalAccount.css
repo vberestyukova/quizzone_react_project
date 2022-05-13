@@ -10,15 +10,16 @@
     color:black;
     border-radius: 30px;
     font-size: 34px;
+    padding: 1rem 2rem;
     /*text-align: center;*/
 }
 
 .account-login {
-
+    padding-top: 0.5rem;
 }
 
 .account-favourite {
-
+    padding: 1rem 2rem;
 }
 
 .account-rating {
