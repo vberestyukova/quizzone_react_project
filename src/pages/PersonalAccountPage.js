@@ -22,8 +22,6 @@ function PersonalAccountPage() {
             if (scoreUser===undefined) showScore(0);
             else showScore(scoreUser)
 
-            // if (quizCountUser===undefined) showScore(0)
-            // else ;
             getQuizCount(quizCountUser);
             setFavourite(favouriteCategories);
         })
@@ -39,7 +37,8 @@ function PersonalAccountPage() {
 
 
 
-        return ( favouriteCategories.length > 0 ? (
+        return (
+            // favouriteCategories.length > 0 ? (
             <div className='account'>
                 <div className='account-login' >Привет, {login}!</div>
                 <div>Избранные квизы</div>
@@ -53,11 +52,12 @@ function PersonalAccountPage() {
                 <Link to='/rating'><ButtonRating /></Link>
 
             </div>
-        ) :
-                <div className='account'>
-                    <div className='account-login' >Loading...</div>
-                </div>
         )
+// :
+//                 <div className='account'>
+//                     <div className='account-login' >Loading...</div>
+//                 </div>
+//         )
 }
 
 export default PersonalAccountPage;

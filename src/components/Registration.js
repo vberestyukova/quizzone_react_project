@@ -13,7 +13,14 @@ class Registration extends Component{
             password: event.target[1].value
         }
 
-        Axios.post("http://46.101.210.56:8080/register", loginData).then(response => console.log(response));
+        Axios.post("http://46.101.210.56:8080/register", loginData)
+        //     .then(() => {
+        //     console.log('Added user' + loginData.login);
+        //     localStorage.setItem('login', loginData.login);
+        //     document.location.href = '/';
+        // })
+        localStorage.setItem('login', loginData.login);
+        document.location.href = '/';
     }
 
     render () {
