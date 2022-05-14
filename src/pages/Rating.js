@@ -10,15 +10,13 @@ function Rating() {
         Axios.get(`${ApiUrl}/usersRating`).then(user => user.data).then(rates => {
 
             for (const user of rates) {
-                if (user.quizCount !== 0) {
+                if (user.quizCount !== 0 && user.quizCount !== undefined) {
                     user.meanScore = user.score / user.quizCount;
                 } else {
                     user.meanScore = 0;
                 }
             }
-
             rates = rates.sort((a, b) => a.meanScore > b.meanScore ? -1 : 1);
-
             setRates(rates);
         })
 
