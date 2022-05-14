@@ -13,7 +13,7 @@ import PersonalAccountPage from "./pages/PersonalAccountPage";
 import Rating from "./pages/Rating";
 import ContactPage from "./pages/ContactPage";
 
-
+export const ApiUrl = 'https://quiz-zone-api.ru';
 function App() {
       return (
             <div className='body'>

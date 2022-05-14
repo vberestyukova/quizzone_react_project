@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState} from "react";
 import "./Catalog.css"
 import Axios from "axios";
+import {ApiUrl} from "../App";
 
 const handleAnswer = (difficulty, categoryId) => {
     localStorage.setItem('category', categoryId);
@@ -20,7 +21,7 @@ function CatalogItem( {categoryName, categoryId}) {
     function setFavouriteQuiz(categoryName) {
         if (myContainer.current.classList.contains('like-light')) {
             myContainer.current.classList.remove('like-light');
-            Axios.post("http://46.101.210.56:8080/delete", {
+            Axios.post(`${ApiUrl}/delete`, {
                 login: login,
                 favourite: categoryName}
             ).then(response => console.log(response)).catch(function (error) {
@@ -29,7 +30,7 @@ function CatalogItem( {categoryName, categoryId}) {
 
         } else {
             myContainer.current.classList.add('like-light');
-            Axios.post("http://46.101.210.56:8080/favourite", {
+            Axios.post(`${ApiUrl}/favourite`, {
                 login: login,
                 favourite: categoryName}
             ).then(response => console.log(response));

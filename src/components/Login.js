@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import "./Login.css"
 import Axios from "axios";
 import {Link} from "react-router-dom";
+import {ApiUrl} from "../App";
 
 class Login extends Component{
 
@@ -14,7 +15,7 @@ class Login extends Component{
         }
 
 
-        Axios.post("http://46.101.210.56:8080/login", loginData).then(() => {
+        Axios.post(`${ApiUrl}/login`, loginData).then(() => {
             localStorage.setItem('login', loginData.login);
             document.location.href='/';
         }).catch(function (error) {

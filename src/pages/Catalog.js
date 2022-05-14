@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import "./Catalog.css"
 import CatalogItem from "./CatalogItem";
 import Axios from "axios";
+import {ApiUrl} from "../App";
 
 export const categories = new Map (
     [
@@ -24,7 +25,7 @@ function Catalog() {
     const login = localStorage.getItem('login');
     const [favourite, setFavouriteCategory] = useState([]);
     useEffect(() => {
-        Axios.get(`http://46.101.210.56:8080/users?login=${login}`).then(user => user.data).then(data => {
+        Axios.get(`${ApiUrl}/users?login=${login}`).then(user => user.data).then(data => {
             const favouriteCategories = data.favourite;
             setFavouriteCategory(favouriteCategories);
         })

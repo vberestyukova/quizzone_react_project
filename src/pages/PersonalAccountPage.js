@@ -4,7 +4,8 @@ import Axios from "axios";
 import "./PersonalAccount.css"
 import {Link} from "react-router-dom";
 import CatalogItem from "./CatalogItem";
-import {ButtonLogin, ButtonRating} from "../components/ButtonStart/ButtonStart";
+import {ButtonRating} from "../components/ButtonStart/ButtonStart";
+import {ApiUrl} from "../App";
 
 
 function PersonalAccountPage() {
@@ -14,7 +15,7 @@ function PersonalAccountPage() {
     const login = localStorage.getItem('login');
 
     useEffect(() => {
-        Axios.get(`http://46.101.210.56:8080/users?login=${login}`).then(user => user.data).then(data => {
+        Axios.get(`${ApiUrl}/users?login=${login}`).then(user => user.data).then(data => {
             const favouriteCategories = data.favourite;
             const scoreUser = data.score;
             const quizCountUser = data.quizCount;

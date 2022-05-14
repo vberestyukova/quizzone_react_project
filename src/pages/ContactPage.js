@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import Axios from "axios";
 import "./Contact.css"
+import {ApiUrl} from "../App";
 
 class ContactPage extends Component{
 
@@ -11,7 +12,7 @@ class ContactPage extends Component{
             message: event.target[0].value
         }
 
-        Axios.post("http://46.101.210.56:8080/message", loginData)
+        Axios.post(`${ApiUrl}/message`, loginData)
         document.location.href = '/';
     }
 

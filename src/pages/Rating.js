@@ -1,14 +1,13 @@
-import React, {Component, useState, useEffect} from "react";
-import {categories} from "./Catalog";
+import React, {useState, useEffect} from "react";
 import Axios from "axios";
 import "./PersonalAccount.css"
-import CatalogItem from "./CatalogItem";
+import {ApiUrl} from "../App";
 
 function Rating() {
     const [rates, setRates] = useState([]);
 
     useEffect(() => {
-        Axios.get("http://46.101.210.56:8080/usersRating").then(user => user.data).then(rates => {
+        Axios.get(`${ApiUrl}/usersRating`).then(user => user.data).then(rates => {
 
             for (const user of rates) {
                 if (user.quizCount !== 0) {

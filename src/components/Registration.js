@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import "./Login.css"
 import Axios from "axios";
+import {ApiUrl} from "../App";
 
 class Registration extends Component{
 
@@ -13,15 +14,9 @@ class Registration extends Component{
             password: event.target[1].value,
             score: 0,
             quizCount: 0
-
         }
 
-        Axios.post("http://46.101.210.56:8080/register", loginData)
-        //     .then(() => {
-        //     console.log('Added user' + loginData.login);
-        //     localStorage.setItem('login', loginData.login);
-        //     document.location.href = '/';
-        // })
+        Axios.post(`${ApiUrl}/register`, loginData)
         localStorage.setItem('login', loginData.login);
         document.location.href = '/';
     }
