@@ -10,6 +10,7 @@ const port = 8080;
 const userScheme = new Schema({
     _id: String,
     login: String,
+    name: String,
     password: String,
     favourite: [String],
     score:Number,
@@ -35,6 +36,7 @@ app.post('/register', (req, res) => {
             Users.insertMany([{
                 'login': req.body.login,
                 'password': req.body.password,
+                'name': req.body.name,
                 'score': 0,
                 'quizCount': 0,
             }], function() {console.log(`Добавлен пользователь ${req.body.login}`)});

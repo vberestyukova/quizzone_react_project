@@ -10,6 +10,7 @@ import {ApiUrl} from "../App";
 
 function PersonalAccountPage() {
     const [favouriteCategories, setFavourite] = useState([]);
+    const [name, setName] = useState('');
     const [score, showScore] = useState(0);
     const [quizCount, getQuizCount] = useState(0);
     const login = localStorage.getItem('login');
@@ -19,12 +20,14 @@ function PersonalAccountPage() {
             const favouriteCategories = data.favourite;
             const scoreUser = data.score;
             const quizCountUser = data.quizCount;
+            const userName = data.name;
 
             if (scoreUser===undefined) showScore(0);
             else showScore(scoreUser)
 
             getQuizCount(quizCountUser);
             setFavourite(favouriteCategories);
+            setName(userName);
         })
     }, [])
 
@@ -34,14 +37,12 @@ function PersonalAccountPage() {
         cards.push(<CatalogItem categoryName={key} categoryId={id} key={id}/>);
     }
 
-    let rating = [];
-
-
+    // let rating = [];
 
         return (
             <div>
                 <div  className='account'>
-                    <div className='account-login' >Привет, {login}!</div>
+                    <div className='account-login' >Привет, {name}!</div>
                     <div className='account-login'>Твои избранные квизы:</div>
                 </div>
                 <div className='card-list cards-center'>

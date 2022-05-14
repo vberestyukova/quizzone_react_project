@@ -7,11 +7,10 @@ class Registration extends Component{
 
     handleSubmit(event) {
         event.preventDefault();
-        console.log(event.target[0].value);
-        console.log(event.target[1].value);
         let loginData ={
             login: event.target[0].value,
-            password: event.target[1].value,
+            password: event.target[2].value,
+            name: event.target[1].value,
             score: 0,
             quizCount: 0
         }
@@ -27,6 +26,8 @@ class Registration extends Component{
                 <form onSubmit={this.handleSubmit}>
                     <div id="login" className='text-area'>Login</div>
                     <input type='text' required ref={node => (this.inputLogin = node)} className='input'/>
+                    <div id="name" className='text-area'>Name</div>
+                    <input type='text' required ref={node => (this.inputName = node)} className='input'/>
                     <div id="password" className='text-area'>Password</div>
                     <input type='password' required ref={node => (this.inputPassword = node)} className='input'/>
                     <div className='text-area'>
