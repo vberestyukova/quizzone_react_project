@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Questionaire({handleAnswer, handleNestQuestion, showAnswers, data: {question, correct_answer, answers}}) {
+function Questions({handleAnswer, handleNestQuestion, showAnswers, data: {question, correct_answer, answers}}) {
     return (
         <>
             <div className='container'>
@@ -28,5 +28,5 @@ function Questionaire({handleAnswer, handleNestQuestion, showAnswers, data: {que
         </>
     )
 }
-export default Questionaire
+export default Questions
 

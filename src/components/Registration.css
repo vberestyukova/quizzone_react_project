@@ -11,3 +11,10 @@
     transition: transform 0.3s;
 
 }
+
+.error-password {
+    border-radius: 20px;
+    background-color: #ec1c1c;
+    color: #FFFFFF;
+    font-size: 15px;
+}

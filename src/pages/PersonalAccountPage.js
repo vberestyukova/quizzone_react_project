@@ -4,7 +4,7 @@ import Axios from "axios";
 import "./PersonalAccount.css"
 import {Link} from "react-router-dom";
 import CatalogItem from "./CatalogItem";
-import {ButtonRating} from "../components/ButtonStart/ButtonStart";
+import {ButtonRating} from "../components/Buttons/Buttons";
 import {ApiUrl} from "../App";
 
 
@@ -32,10 +32,12 @@ function PersonalAccountPage() {
     }, [])
 
     let cards = [];
-    for (const key of favouriteCategories) {
-        let id = categories.get(key);
-        cards.push(<CatalogItem categoryName={key} categoryId={id} key={id}/>);
+        for (const key of favouriteCategories) {
+            let id = categories.get(key);
+            cards.push(<CatalogItem categoryName={key} categoryId={id} key={id}/>);
+
     }
+
 
     // let rating = [];
 
@@ -52,8 +54,6 @@ function PersonalAccountPage() {
                 <div className='button-rating'>
                     <Link to='/rating'><ButtonRating /></Link>
                 </div>
-
-
             </div>
         )
 }
