@@ -8,14 +8,14 @@ const app = express();
 const port = 8080;
 
 const userScheme = new Schema({
-    _id: String,
-    login: String,
-    name: String,
-    password: String,
-    favourite: [String],
-    score:Number,
-    quizCount: Number,
-    message: [String]},
+        _id: String,
+        login: String,
+        name: String,
+        password: String,
+        favourite: [String],
+        score:Number,
+        quizCount: Number,
+        message: [String]},
     {versionKey: false});
 const Users = mongoose.model("Users", userScheme);
 
@@ -39,7 +39,11 @@ app.post('/register', (req, res) => {
                 'name': req.body.name,
                 'score': 0,
                 'quizCount': 0,
-            }], function() {console.log(`Добавлен пользователь ${req.body.login}`)});
+            }], function(err, result) {
+                if(err) console.log(err);
+                console.log(`Добавлен пользователь ${req.body.login}`);
+                res.send('');
+            });
         }
     });
 
@@ -48,13 +52,13 @@ app.post('/register', (req, res) => {
 app.post('/login', (req, res) => {
     Users.findOne({
         'login': req.body.login}, function(err, user){
-            if (user.password === req.body.password) {
-                res.send('login success');
-            }
-            else {
-                res.status(400);
-                res.send('invalid password');
-            }
+        if (user.password === req.body.password) {
+            res.send('login success');
+        }
+        else {
+            res.status(400);
+            res.send('invalid password');
+        }
     });
 })
 
@@ -87,7 +91,7 @@ app.post('/favourite', (req, res) => {
         {'$push': {'favourite': req.body.favourite}},
         function(error, result) {
             res.send('');
-    });
+        });
 
 })
 
@@ -114,9 +118,9 @@ app.post('/message', (req, res) => {
 mongoose.connect("mongodb+srv://lera:$bY6EQ5NN_i6YEE@cluster0.na0kd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     { useUnifiedTopology: true, useNewUrlParser: true},
     function(err){
-    if(err) return console.log(err);
-    app.listen(port, function(){
-        console.log("Сервер ожидает подключения...");
+        if(err) return console.log(err);
+        app.listen(port, function(){
+            console.log("Сервер ожидает подключения...");
+        });
     });
-});
 
