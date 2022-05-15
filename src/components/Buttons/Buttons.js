@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import './buttonStart.css';
+import './buttons.css';
 import { Routes, Route, Link } from "react-router-dom";
 
-export const ButtonStart = () => {
+export const Buttons = () => {
     return (
         <button
             className={'button_style'}

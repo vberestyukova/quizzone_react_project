@@ -8,10 +8,7 @@
     font-size: 54px;
     background: white;
     color:black;
-    /*margin: 60px 25rem 30px;*/
     border-radius: 30px;
-    /*margin-top: 100px;*/
-
     text-align: center;
     -webkit-transition: 0.8s ease;
 }
@@ -44,7 +41,7 @@
 }
 
 .text-area {
-    font-family: Roboto;
+    font-family: "Roboto Light";
     font-size: 1.25rem;
     padding-top: 1rem;
     color:black;
@@ -63,4 +60,12 @@
     cursor: pointer;
     opacity: 1;
     transition-duration: 1s;
+}
+
+.error-password {
+    border-radius: 10px;
+    background-color: #ec1c1c;
+    color: #FFFFFF;
+    font-size: 15px;
+    margin: 1rem;
 }

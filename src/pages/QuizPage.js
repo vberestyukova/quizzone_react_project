@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import { ButtonAgain } from "../components/ButtonStart/ButtonStart"
+import { ButtonAgain } from "../components/Buttons/Buttons"
 import './quizPage.css'
 import Axios  from 'axios';
-import Questions from '../components/Questionaire'
+import Questions from '../components/Questions'
 import {Link} from "react-router-dom";
 import {ApiUrl} from "../App";
 

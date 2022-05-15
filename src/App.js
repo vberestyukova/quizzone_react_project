@@ -1,11 +1,10 @@
 import './App.css';
-import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom";
+import { Routes, Route, Link, useLocation } from "react-router-dom";
 import QuizPage from "./pages/QuizPage"
 import { MainPage } from "./pages/MainPage"
 import { NotFoundPage } from "./pages/NotFoundPage"
 import { AboutPage } from "./pages/AboutPage";
 import { Header } from "./components/Header";
-import { ChooseCategoryPage } from "./pages/ChooseCategoryPage/ChooseCategoryPage"
 import Catalog from "./pages/Catalog";
 import Login from "./components/Login";
 import Registration from "./components/Registration";
@@ -25,7 +24,6 @@ function App() {
                         <Route path="*" element={<NotFoundPage />} />
                         <Route exact path="/about" element={<AboutPage />} />
                         <Route exact path="/feedback" element={<ContactPage />} />
-                        <Route  path="/choose_quiz" element={<ChooseCategoryPage />} />
                         <Route  path="/catalog" element={<Catalog />} />
                         <Route path={"/login"} element={<Login />} />
                         <Route path={"/account"} element={<PersonalAccountPage />} />
@@ -33,7 +31,6 @@ function App() {
                         <Route path={"/rating"} element={<Rating />} />
                         </Routes>
                 </section>
-                {/*<footer className='footer'>© QuizZone 2022</footer>*/}
             </div>
       );
 }
