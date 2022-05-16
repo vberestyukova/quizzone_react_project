@@ -3,6 +3,8 @@ import "./Catalog.css"
 import CatalogItem from "./CatalogItem";
 import Axios from "axios";
 import {ApiUrl} from "../App";
+import {Link} from "react-router-dom";
+import {ButtonLogin} from "../components/Buttons/Buttons";
 
 export const categories = new Map (
     [
@@ -42,12 +44,22 @@ function Catalog() {
 
     return (
         <div className='catalog'>
-            <div>
-                <div className='catalog-title'>Викторины</div>
-                <div className='card-list'>
-                    {cards}
+            {localStorage.getItem('login') === null ? (
+                <div className='catalog-check-login'>
+                    <div >Войдите в аккаунт, чтобы сохранить прогресс</div>
+                    <Link to='/login'><button type="submit" className='catalog-check-login-button'>Вход</button></Link>
                 </div>
-            </div>
+            ) : (
+                <div>
+                    <div className='catalog-title'>Викторины</div>
+                    <div className='card-list'>
+                        {cards}
+                    </div>
+                    <Link to='/random_quiz'>Викторина с вопросами из всех тем</Link>
+                </div>
+
+            )}
+
         </div>
     )
 }

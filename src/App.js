@@ -11,6 +11,7 @@ import Registration from "./components/Registration";
 import PersonalAccountPage from "./pages/PersonalAccountPage";
 import Rating from "./pages/Rating";
 import ContactPage from "./pages/ContactPage";
+import RandomQuizPage from "./pages/RandomQuizPage";
 
 export const ApiUrl = 'https://quiz-zone-api.ru';
 function App() {
@@ -29,6 +30,7 @@ function App() {
                         <Route path={"/account"} element={<PersonalAccountPage />} />
                         <Route path={"/registration"} element={<Registration />} />
                         <Route path={"/rating"} element={<Rating />} />
+                        <Route path={'/random_quiz'} element={<RandomQuizPage />} />
                         </Routes>
                 </section>
             </div>

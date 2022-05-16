@@ -80,3 +80,34 @@
     width: 22px;
     transition-duration: 0.5s
 }
+
+.catalog-check-login {
+    padding: 2rem;
+    background-color: #FFFFFF;
+    opacity: 0.9;
+    font-size: 2rem;
+    border-radius: 20px;
+    box-sizing: border-box;
+    position: relative;
+    left: 35%;
+    width: 30%;
+    height: max-content;
+    color: black;
+    text-align: center;
+
+}
+
+.catalog-check-login-button {
+    margin: 1rem 2rem;
+    border-radius: 20px;
+    padding: 1rem 2rem;
+    border-color: #C4C4C4;
+    background-color: black;
+    opacity: 0.8;
+    color:#FFFFFF;
+    -webkit-transition: 0.5s ease;
+}
+
+.catalog-check-text {
+
+}
