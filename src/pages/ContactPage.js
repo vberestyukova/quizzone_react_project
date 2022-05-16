@@ -25,7 +25,7 @@ class ContactPage extends Component{
                     <textarea
                         type='text'
                         required
-                        placeholder="Name"
+                        placeholder="Ваш отзыв"
                         ref={node => (this.inputMessage = node)}
                         className='input-message'/>
                     <div className='text-area'>
@@ -38,3 +38,6 @@ class ContactPage extends Component{
 }
 
 export default ContactPage;
+
+
+

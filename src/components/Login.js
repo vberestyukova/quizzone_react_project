@@ -5,7 +5,10 @@ import {Link} from "react-router-dom";
 import {ApiUrl} from "../App";
 
 class Login extends Component{
-
+    constructor(props) {
+        super(props);
+        this.showHidePassword = this.showHidePassword.bind(this);
+    }
     handleSubmit(event) {
         event.preventDefault();
 
@@ -23,19 +26,36 @@ class Login extends Component{
         });
     }
 
+    showHidePassword(){
+        let input = document.getElementById("password-input");
+        if (input.getAttribute('type') == 'password') {
+            input.classList.add('view');
+            input.setAttribute('type', 'text');
+        } else {
+            input.classList.remove('view');
+            input.setAttribute('type', 'password');
+        }
+    }
+
     render () {
         return (
-            <div className='login'>
-                <form onSubmit={this.handleSubmit}>
-                    <div id="login" className='text-area'>Login</div>
-                    <input type='text' required ref={node => (this.inputLogin = node)} className='input'/>
-                    <div id="password" className='text-area'>Password</div>
-                    <input type='password'  required ref={node => (this.inputPassword = node)} className='input'/>
-                    <div>
-                        <button type="submit" className='input-button'>Вход</button>
-                    </div>
-                </form>
-                <Link to='/registration' className='text-area-register'>Еще нет аккаунта? Регистрация</Link>
+            <div>
+                <div className='login-name'>Авторизация</div>
+                <div className='login'>
+                    <form onSubmit={this.handleSubmit}>
+                        <div id="login" className='text-area-register'>Логин</div>
+                        <input type='text' placeholder="Введите Email" required ref={node => (this.inputLogin = node)} className='input'/>
+                        <div id="password" className='text-area-register'>Пароль</div>
+                        <div className='input-password'>
+                            <input type='password'  id="password-input" placeholder="Введите пароль" required ref={node => (this.inputPassword = node)} className='input'/>
+                            <a href="#" className="password-control" onClick={this.showHidePassword}></a>
+                        </div>
+                        <div>
+                            <button type="submit" className='input-button'>Вход</button>
+                        </div>
+                    </form>
+                    <Link to='/registration' className='text-area-register'>Еще нет аккаунта? Регистрация</Link>
+                </div>
             </div>
         )
     }

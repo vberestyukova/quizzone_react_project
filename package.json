@@ -24,6 +24,7 @@
     "react-spring": "^9.4.4",
     "react-transition-group": "^4.4.2",
     "redux": "^4.2.0",
+    "typeface-roboto": "^1.1.13",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
