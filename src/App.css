@@ -89,7 +89,7 @@ html {
 }
 
 
-.menu_icon {
+.menu-icon {
   background-image: url("../public/menu.png");
   /*background-position: 0 -6px;*/
   background-repeat: no-repeat;
@@ -101,7 +101,7 @@ html {
   /*transition: width 2s, height 2s, background-color 2s, transform 2s;*/
 }
 
-.menu_icon:hover {
+.menu-icon-active {
   /*background-image: url("./menu_open_active.png " );*/
   cursor: pointer;
   -webkit-transform: rotate(180deg);
@@ -206,4 +206,9 @@ html {
     transform: translateX(100%);
     opacity: 0;
   }
+}
+
+
+.menu-not-visible {
+  opacity: 0;
 }

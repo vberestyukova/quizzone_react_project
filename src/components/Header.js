@@ -5,7 +5,15 @@ import {useState, useEffect} from "react";
 export const Header = () => {
     const [count, setCount] = useState(0);
     function menuClick() {
-        console.log('click!');
+        let menu = document.getElementById('menu');
+        let menuButton = document.getElementById('menu-icon');
+        if (menu.classList.contains('menu-not-visible')) {
+            menu.classList.remove('menu-not-visible');
+            menuButton.classList.remove('menu-icon-active');
+        } else {
+            menu.classList.add('menu-not-visible');
+            menuButton.classList.add('menu-icon-active');
+        }
     }
 
     function logOut() {
@@ -17,19 +25,22 @@ export const Header = () => {
     return (
         <header className='body_nav'>
             <div className="menu">
-                <div  className='menu_icon' onClick={menuClick}/>
-                <Link to="/" className='menu_title'>Главная</Link>
-                <Link to="/catalog" className='menu_title'>Каталог</Link>
-                <Link to="/about" className='menu_title'>О проекте</Link>
-                <Link to="/feedback" className='menu_title'>Обратная связь</Link>
-                { localStorage.getItem('login') === null ?
-                    <Link className='menu_title' to='/login'>Вход</Link> :
-                    (<div>
-                        <Link to='/account' className='menu_title'>Личный кабинет</Link>
-                        <div onClick={logOut} className='menu_title'>Выход</div>
-                    </div>
-                    )
-                }
+                <div  className='menu-icon' id='menu-icon' onClick={menuClick}/>
+                <div id='menu'>
+                    <Link to="/" className='menu_title'>Главная</Link>
+                    <Link to="/catalog" className='menu_title'>Каталог</Link>
+                    <Link to="/about" className='menu_title'>О проекте</Link>
+                    <Link to="/feedback" className='menu_title'>Обратная связь</Link>
+                    { localStorage.getItem('login') === null ?
+                        <Link className='menu_title' to='/login'>Вход</Link> :
+                        (<div>
+                                <Link to='/account' className='menu_title'>Личный кабинет</Link>
+                                <div onClick={logOut} className='menu_title'>Выход</div>
+                            </div>
+                        )
+                    }
+                </div>
+
             </div>
             <div className="menu menu_links">
                 <a href="https://github.com/vberestyukova" target="_blank" className='menu_title_links github' />
