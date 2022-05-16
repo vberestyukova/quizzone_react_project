@@ -61,12 +61,43 @@ class Registration extends Component{
             this.setState({
                 password: event.target[2].value,
                 passwordFlag: true,
-                repeatPassword: event.target[3].value
             })
+            if (this.state.repeatPassword !==null) {
+                this.setState({
+                    repeatPassword: event.target[3].value,
+                });
+                if (this.state.repeatPassword === this.state.password) {
+                    this.setState({
+                        passwordCheck: true
+                    })
+                    let loginData ={
+                        login: event.target[0].value,
+                        password: event.target[2].value,
+                        name: event.target[1].value,
+                        score: 0,
+                        quizCount: 0
+                    }
 
-            if (this.state.password !== this.state.passwordCheck) { this.setState({
-                passwordCheck: false
-            })}
+                    Axios.post(`${ApiUrl}/register`, loginData)
+                    localStorage.setItem('login', loginData.login);
+                    document.location.href = '/';
+                } else {
+                    this.setState({
+                        passwordCheck: false
+                    })
+                }
+            }
+            // let loginData ={
+            //     login: event.target[0].value,
+            //     password: event.target[2].value,
+            //     name: event.target[1].value,
+            //     score: 0,
+            //     quizCount: 0
+            // }
+            //
+            // Axios.post(`${ApiUrl}/register`, loginData)
+            // localStorage.setItem('login', loginData.login);
+            // document.location.href = '/';
 
         } else {
             this.setState({
@@ -74,19 +105,7 @@ class Registration extends Component{
             })
         }
 
-        if (this.passwordCheck === true) {
-            let loginData ={
-                login: event.target[0].value,
-                password: event.target[2].value,
-                name: event.target[1].value,
-                score: 0,
-                quizCount: 0
-            }
 
-            Axios.post(`${ApiUrl}/register`, loginData)
-            localStorage.setItem('login', loginData.login);
-            document.location.href = '/';
-        }
     }
 
     render () {

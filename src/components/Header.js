@@ -26,7 +26,7 @@ export const Header = () => {
         <header className='body_nav'>
             <div className="menu">
                 <div  className='menu-icon' id='menu-icon' onClick={menuClick}/>
-                <div id='menu'>
+                <div id='menu' className='menu_titles'>
                     <Link to="/" className='menu_title'>Главная</Link>
                     <Link to="/catalog" className='menu_title'>Каталог</Link>
                     <Link to="/about" className='menu_title'>О проекте</Link>
