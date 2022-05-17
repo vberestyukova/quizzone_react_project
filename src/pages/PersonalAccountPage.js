@@ -80,8 +80,7 @@ function PersonalAccountPage() {
                             <div className='account-login'>Твой счет {score/quizCount}</div>
                         </div>
                     )}
-
-                    {quizCount === 0 && <div className='account-login'>Твой счет 0</div>}
+                    {quizCount === 0 && <div className='account-login'>Вы еще не играли ни в одну игру</div>}
 
                     <div className='account-login'>Твои избранные квизы:</div>
                 </div>
