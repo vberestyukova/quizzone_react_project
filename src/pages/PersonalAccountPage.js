@@ -22,9 +22,10 @@ function PersonalAccountPage() {
             const quizCountUser = data.quizCount;
             const userName = data.name;
 
+
             if (scoreUser===undefined) showScore(0);
             else showScore(scoreUser)
-
+            console.log(score)
             getQuizCount(quizCountUser);
             setFavourite(favouriteCategories);
             setName(userName);
@@ -45,12 +46,17 @@ function PersonalAccountPage() {
             <div>
                 <div  className='account'>
                     <div className='account-login' >Привет, {name}!</div>
+                    {quizCount !==0 && quizCount !== undefined ? (
+                        <div className='account-login'>Твой счет {score/quizCount}</div>
+                    ) : (
+                        <div className='account-login'>Твой счет 0</div>
+                    )}
                     <div className='account-login'>Твои избранные квизы:</div>
                 </div>
                 <div className='card-list cards-center'>
                     {cards}
                 </div>
-                <div>Средний score {Math.ceil(score/quizCount)}</div>
+
                 <div className='button-rating'>
                     <Link to='/rating'><ButtonRating /></Link>
                 </div>

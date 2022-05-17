@@ -9,14 +9,15 @@ class Registration extends Component{
         super(props);
         this.state = {
             password: '',
-            passwordFlag: true,
-            repeatPassword: '',
-            passwordCheck: true
-
+            passwordCheck: true,
+            passwordRepeat: '',
+            passwordRepeatCheck: true,
         };
+        this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.showHidePassword = this.showHidePassword.bind(this);
-        this.showHideRepeatPassword = this.showHideRepeatPassword.bind(this);
+        this.showHidepasswordRepeat = this.showHidepasswordRepeat.bind(this);
+        this.checkPassword = this.checkPassword.bind(this);
     }
 
     showHidePassword(){
@@ -30,7 +31,7 @@ class Registration extends Component{
         }
     }
 
-    showHideRepeatPassword(){
+    showHidepasswordRepeat(){
         let input = document.getElementById("password-input-repeat");
         if (input.getAttribute('type') == 'password') {
             input.classList.add('view');
@@ -41,36 +42,46 @@ class Registration extends Component{
         }
     }
 
+    handleChange(event) {
+        this.setState({password: event.target.value});
+
+    event.preventDefault();
+            const numberTest = /[0-9]/;
+            const lowerCaseTest = /[a-z|а-я]/;
+            const upperCaseTest = /[A-Z| А-Я]/;
+            const symbolTest = /[! ? . , + - * / =]/;
+
+            function check() {
+                if (event.target.value.length < 10) { return false }
+                if (numberTest.test(event.target.value) === false) { return false }
+                if (lowerCaseTest.test(event.target.value) === false) { return false }
+                if (upperCaseTest.test(event.target.value) === false) { return false }
+                if (symbolTest.test(event.target.value) === false) { return false }
+
+                return true
+            }
+            this.setState({
+                passwordCheck: check()
+            })
+
+    }
+
+    checkPassword(event) {
+        this.setState({passwordRepeat: event.target.value});
+        let passwordCorrect = this.state.password;
+        function repeatCheck(password) {
+            if (password !== event.target.value) { return false }
+            return true
+        }
+        this.setState({
+            passwordRepeatCheck: repeatCheck(passwordCorrect)
+        })
+    }
+
 
     handleSubmit(event) {
         event.preventDefault();
-        const numberTest = /[0-9]/;
-        const lowerCaseTest = /[a-z|а-я]/;
-        const upperCaseTest = /[A-Z| А-Я]/;
-        const symbolTest = /[! ? . , + - * / =]/;
-        let passwordFlag = true;
-
-
-        if (event.target[2].value.length < 10) { passwordFlag = false }
-        if (numberTest.test(event.target[2].value) === false) { passwordFlag = false; }
-        if (lowerCaseTest.test(event.target[2].value) === false) { passwordFlag = false; }
-        if (upperCaseTest.test(event.target[2].value) === false) { passwordFlag = false; }
-        if (symbolTest.test(event.target[2].value) === false) { passwordFlag = false; }
-
-        if (passwordFlag === true) {
-            this.setState({
-                password: event.target[2].value,
-                passwordFlag: true,
-            })
-            if (this.state.repeatPassword !==null) {
-                this.setState({
-                    repeatPassword: event.target[3].value,
-                });
-                if (this.state.repeatPassword === this.state.password) {
-                    this.setState({
-                        passwordCheck: true
-                    })
-                    let loginData ={
+        let loginData ={
                         login: event.target[0].value,
                         password: event.target[2].value,
                         name: event.target[1].value,
@@ -81,32 +92,10 @@ class Registration extends Component{
                     Axios.post(`${ApiUrl}/register`, loginData)
                     localStorage.setItem('login', loginData.login);
                     document.location.href = '/';
-                } else {
-                    this.setState({
-                        passwordCheck: false
-                    })
-                }
-            }
-            // let loginData ={
-            //     login: event.target[0].value,
-            //     password: event.target[2].value,
-            //     name: event.target[1].value,
-            //     score: 0,
-            //     quizCount: 0
-            // }
-            //
-            // Axios.post(`${ApiUrl}/register`, loginData)
-            // localStorage.setItem('login', loginData.login);
-            // document.location.href = '/';
 
-        } else {
-            this.setState({
-                passwordFlag: false
-            })
         }
 
 
-    }
 
     render () {
         return (
@@ -117,7 +106,7 @@ class Registration extends Component{
                         <div id="login" className='text-area-register'>Логин</div>
                         <input type='email' placeholder="Введите Email" required ref={node => (this.inputLogin = node)} className='input'/>
                         <div id="name" className='text-area-register'>Имя пользователя</div>
-                        <input type='text' placeholder="Введите имя" required ref={node => (this.inputName = node)} className='input'/>
+                        <input type='text' placeholder="Введите имя"  required ref={node => (this.inputName = node)} className='input'/>
 
                         <div id="password" className='text-area-register tooltip'>Пароль<ul className="tooltiptext">
                             <li>не менее 10 символов</li>
@@ -126,19 +115,21 @@ class Registration extends Component{
                             <li>допустимые символы:~ ! ? @ # $ % ^ & *_ - + ( ) [ ] { }</li>
                         </ul></div>
                         <div className='input-password'>
-                            <input type='password'  id="password-input" placeholder="Введите пароль" required ref={node => (this.inputPassword = node)} className='input'/>
+                            <input type='password' onChange={this.handleChange}  id="password-input" placeholder="Введите пароль" required ref={node => (this.inputPassword = node)} className='input'/>
                             <a href="#" className="password-control" onClick={this.showHidePassword}></a>
                         </div>
-                        {this.state.passwordFlag===false && (
-                            <div className='error-password'>Пароль должен содержать цифры, строчные и заглавные буквы, символы и минимум 10 символов</div>
+                        {this.state.passwordCheck === false && (
+                            <div className='error-password'>Пароль должен содержать цифры, строчные и заглавные буквы, символы и минимум 10 символов! </div>
                         )}
-
+                        {(this.state.passwordCheck === true && this.state.password.length !== 0) && (
+                            <div className='correct-password'>Пароль подходит</div>
+                        )}
                         <div id="password" className='text-area-register'>Повторите пароль</div>
                         <div className='input-password'>
-                            <input type='password'  id="password-input-repeat" placeholder="Повторите пароль" required ref={node => (this.inputPasswordRepeat = node)} className='input'/>
-                            <a href="#" className="password-control" onClick={this.showHideRepeatPassword}></a>
+                            <input type='password' onChange={this.checkPassword} id="password-input-repeat" placeholder="Повторите пароль" required ref={node => (this.inputpasswordCheck = node)} className='input'/>
+                            <a href="#" className="password-control" onClick={this.showHidepasswordRepeat}></a>
                         </div>
-                        {this.state.passwordCheck === false && (
+                        {this.state.passwordRepeatCheck === false && (
                             <div className='error-password'>Пароли не совпадают!</div>
                         )}
                         <div className='text-area'>
@@ -152,3 +143,6 @@ class Registration extends Component{
 }
 
 export default Registration;
+
+
+// pattern="(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}"

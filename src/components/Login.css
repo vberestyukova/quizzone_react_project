@@ -66,8 +66,7 @@
 
 .error-password {
     border-radius: 10px;
-    background-color: #ec1c1c;
-    color: #FFFFFF;
+    color: #ec0b0b;
     font-size: 15px;
     margin: 1rem;
 }
@@ -123,4 +122,11 @@
 .tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
+}
+
+.correct-password {
+    border-radius: 10px;
+    color: #20a973;
+    font-size: 15px;
+    margin: 1rem;
 }
