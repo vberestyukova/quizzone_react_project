@@ -23,9 +23,9 @@ function PersonalAccountPage() {
             const quizCountUser = data.quizCount;
             const userName = data.name;
             let idCase = [];
-            console.log(favouriteCategory.length)
+            // console.log(favouriteCategory.length)
             // const categories = new Map ();
-            if (favouriteCategory !==[]) {
+            if (favouriteCategory) {
                 for (let i=0; i<favouriteCategory.length; i++) {
                     let id = categories.get(favouriteCategory[i]);
                     idCase.push(id)
