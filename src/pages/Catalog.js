@@ -37,6 +37,7 @@ function Catalog() {
 
     let cards = [];
     const keys = categories.keys();
+    console.log(keys)
     for (const key of keys) {
         let id = categories.get(key);
         cards.push(<CatalogItem categoryName={key} categoryId={id} key={id}/>);

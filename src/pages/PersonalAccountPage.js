@@ -9,7 +9,7 @@ import {ApiUrl} from "../App";
 
 
 function PersonalAccountPage() {
-    const [favouriteCategories, setFavourite] = useState('');
+    const [favouriteCategories, setFavourite] = useState([]);
     const [name, setName] =useState('');
     const [score, showScore] = useState(0);
     const [quizCount, getQuizCount] = useState(0);
@@ -21,24 +21,34 @@ function PersonalAccountPage() {
             const scoreUser = data.score;
             const quizCountUser = data.quizCount;
             const userName = data.name;
-
+            // const categories = new Map ();
+            // console.log(favouriteCategory)
 
             if (scoreUser===undefined) showScore(0);
             else showScore(scoreUser)
             getQuizCount(quizCountUser);
             setFavourite(favouriteCategory);
             setName(userName);
-            console.log(favouriteCategories)
+
         })
     }, [])
 
     let cards = [];
+    let categoriesMap = new Map();
     for (const key of favouriteCategories) {
-        let id = categories.get(key);
-        cards.push(<CatalogItem categoryName={key} categoryId={id} key={id}/>);
 
+        let id = categories.get(key);
+        categoriesMap.set(key, id)
+        // console.log(categoriesMap)
+        // cards.push(<CatalogItem categoryName={key} categoryId={id} key={id}/>);
     }
 
+    const keys = categoriesMap.keys();
+    console.log(keys);
+    for (const key of keys) {
+        let id = categoriesMap.get(key);
+        cards.push(<CatalogItem categoryName={key} categoryId={id} key={id}/>);
+    }
 
     // let rating = [];
 
