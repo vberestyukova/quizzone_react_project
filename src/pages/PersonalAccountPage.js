@@ -33,67 +33,35 @@ function PersonalAccountPage() {
     }, [])
 
     let cards = [];
-        for (const key of favouriteCategories) {
-            let id = categories.get(key);
-            cards.push(<CatalogItem categoryName={key} categoryId={id} key={id}/>);
+    for (const key of favouriteCategories) {
+        let id = categories.get(key);
+        cards.push(<CatalogItem categoryName={key} categoryId={id} key={id}/>);
 
     }
 
 
     // let rating = [];
 
-        return (
-            <div>
-
-
-                <div  className='account'>
-
-                        <div className='account-login' >Привет, {name}!</div>
-
-
-                    {/*{quizCount !==0 && quizCount !== undefined ? (*/}
-                    {/*    <div className='medal'>*/}
-                    {/*        <img src='./medal.png'/>*/}
-                    {/*        <div className='account-login'>Твой счет {score/quizCount}</div>*/}
-                    {/*    </div>*/}
-                    {/*) : (*/}
-                    {/*        <div className='account-login'>Твой счет 0</div>*/}
-                    {/*)}*/}
-
-                    {(quizCount !==0 && score/quizCount > 6) && (
-                        <div className='medal'>
-                            <img src='./medal.png'/>
-                            <div className='account-login'>Твой счет {score/quizCount}</div>
-                        </div>
-                    )}
-
-                    {(quizCount !==0 && score/quizCount > 4 && score/quizCount <6) && (
-                        <div className='medal'>
-                            <img src='./medal2.png'/>
-                            <div className='account-login'>Твой счет {score/quizCount}</div>
-                        </div>
-                    )}
-
-                    {(quizCount !==0 && score/quizCount < 4 && score/quizCount > 0) && (
-                        <div className='medal'>
-                            <img src='./medal3.png'/>
-                            <div className='account-login'>Твой счет {score/quizCount}</div>
-                        </div>
-                    )}
-                    {quizCount === 0 && <div className='account-login'>Вы еще не играли ни в одну игру</div>}
-
-                    <div className='account-login'>Твои избранные квизы:</div>
-                </div>
-
-                <div className='card-list cards-center'>
-                    {cards}
-                </div>
-
-                <div className='button-rating'>
-                    <Link to='/rating'><ButtonRating /></Link>
-                </div>
+    return (
+        <div>
+            <div  className='account'>
+                <div className='account-login' >Привет, {name}!</div>
+                {quizCount !==0 && quizCount !== undefined ? (
+                    <div className='account-login'>Твой счет {score/quizCount}</div>
+                ) : (
+                    <div className='account-login'>Твой счет 0</div>
+                )}
+                <div className='account-login'>Твои избранные квизы:</div>
             </div>
-        )
+            <div className='card-list cards-center'>
+                {cards}
+            </div>
+
+            <div className='button-rating'>
+                <Link to='/rating'><ButtonRating /></Link>
+            </div>
+        </div>
+    )
 }
 
 export default PersonalAccountPage;
