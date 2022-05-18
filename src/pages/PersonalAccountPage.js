@@ -10,6 +10,7 @@ import {ApiUrl} from "../App";
 
 function PersonalAccountPage() {
     const [favouriteCategories, setFavourite] = useState([]);
+    const [favouriteCategoriesId, setFavouriteId] = useState([]);
     const [name, setName] =useState('');
     const [score, showScore] = useState(0);
     const [quizCount, getQuizCount] = useState(0);
@@ -21,7 +22,14 @@ function PersonalAccountPage() {
             const scoreUser = data.score;
             const quizCountUser = data.quizCount;
             const userName = data.name;
+            let idCase = [];
             // const categories = new Map ();
+            for (let i=0; i<favouriteCategory.length; i++) {
+                let id = categories.get(favouriteCategory[i]);
+                idCase.push(id)
+            }
+
+            // console.log(idCase)
             // console.log(favouriteCategory)
 
             if (scoreUser===undefined) showScore(0);
@@ -29,27 +37,33 @@ function PersonalAccountPage() {
             getQuizCount(quizCountUser);
             setFavourite(favouriteCategory);
             setName(userName);
+            setFavouriteId(idCase)
 
         })
     }, [])
-
+    console.log(favouriteCategoriesId);
+    console.log(favouriteCategories);
     let cards = [];
-    let categoriesMap = new Map();
-    for (const key of favouriteCategories) {
 
-        let id = categories.get(key);
-        categoriesMap.set(key, id)
-        // console.log(categoriesMap)
-        // cards.push(<CatalogItem categoryName={key} categoryId={id} key={id}/>);
+    for (let j=0; j< favouriteCategories.length; j++) {
+        cards.push(<CatalogItem categoryName={favouriteCategories[j]} categoryId={favouriteCategoriesId[j]} key={favouriteCategoriesId[j]}/>)
     }
-
-    const keys = categoriesMap.keys();
-    console.log(keys);
-    for (const key of keys) {
-        let id = categoriesMap.get(key);
-        cards.push(<CatalogItem categoryName={key} categoryId={id} key={id}/>);
-    }
-
+    // let categoriesMap = new Map();
+    // for (const key of favouriteCategories) {
+    //
+    //     let id = categories.get(key);
+    //     categoriesMap.set(key, id)
+    //     // console.log(categoriesMap)
+    //     // cards.push(<CatalogItem categoryName={key} categoryId={id} key={id}/>);
+    // }
+    //
+    // const keys = categoriesMap.keys();
+    // // console.log(keys);
+    // for (const key of keys) {
+    //     let id = categoriesMap.get(key);
+    //     cards.push(<CatalogItem categoryName={key} categoryId={id} key={id}/>);
+    // }
+    // console.log(cards);
     // let rating = [];
 
     return (

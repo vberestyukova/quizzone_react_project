@@ -42,7 +42,7 @@ function Catalog() {
         let id = categories.get(key);
         cards.push(<CatalogItem categoryName={key} categoryId={id} key={id}/>);
     }
-
+    console.log(cards)
     return (
         <div className='catalog'>
             {localStorage.getItem('login') === null && (
