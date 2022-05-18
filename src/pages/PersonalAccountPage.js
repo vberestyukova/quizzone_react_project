@@ -9,15 +9,15 @@ import {ApiUrl} from "../App";
 
 
 function PersonalAccountPage() {
-    const [favouriteCategories, setFavourite] = useState([]);
-    const [name, setName] = useState('');
+    const [favouriteCategories, setFavourite] = useState('');
+    const [name, setName] =useState('');
     const [score, showScore] = useState(0);
     const [quizCount, getQuizCount] = useState(0);
     const login = localStorage.getItem('login');
 
     useEffect(() => {
         Axios.get(`${ApiUrl}/users?login=${login}`).then(user => user.data).then(data => {
-            const favouriteCategories = data.favourite;
+            const favouriteCategory = data.favourite;
             const scoreUser = data.score;
             const quizCountUser = data.quizCount;
             const userName = data.name;
@@ -25,10 +25,10 @@ function PersonalAccountPage() {
 
             if (scoreUser===undefined) showScore(0);
             else showScore(scoreUser)
-            console.log(score)
             getQuizCount(quizCountUser);
-            setFavourite(favouriteCategories);
+            setFavourite(favouriteCategory);
             setName(userName);
+            console.log(favouriteCategories)
         })
     }, [])
 
