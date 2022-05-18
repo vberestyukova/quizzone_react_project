@@ -74,11 +74,32 @@ function PersonalAccountPage() {
         <div>
             <div  className='account'>
                 <div className='account-login' >Привет, {name}!</div>
-                {quizCount !==0 && quizCount !== undefined ? (
-                    <div className='account-login'>Твой счет {score/quizCount}</div>
-                ) : (
-                    <div className='account-login'>Твой счет 0</div>
+                {(quizCount !==0 && score/quizCount > 6) && (
+                    <div className='medal'>
+                        <img src='./medal.png'/>
+                        <div className='account-login'>Твой счет {Math.round(score/quizCount)}</div>
+                    </div>
                 )}
+
+                {(quizCount !==0 && score/quizCount > 4 && score/quizCount <6) && (
+                    <div className='medal'>
+                        <img src='./medal2.png'/>
+                        <div className='account-login'>Твой счет {Math.round(score/quizCount)}</div>
+                    </div>
+                )}
+
+                {(quizCount !==0 && score/quizCount < 4 && score/quizCount > 0) && (
+                    <div className='medal'>
+                        <img src='./medal3.png'/>
+                        <div className='account-login'>Твой счет {Math.round(score/quizCount)}</div>
+                    </div>
+                )}
+                {quizCount === 0 && <div className='account-login'>Вы еще не играли ни в одну игру</div>}
+                {/*{quizCount !==0 && quizCount !== undefined ? (*/}
+                {/*    <div className='account-login'>Твой счет {score/quizCount}</div>*/}
+                {/*) : (*/}
+                {/*    <div className='account-login'>Твой счет 0</div>*/}
+                {/*)}*/}
                 <div className='account-login'>Твои избранные квизы:</div>
             </div>
             <div className='card-list cards-center'>
