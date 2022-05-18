@@ -89,9 +89,11 @@ class Registration extends Component{
                         quizCount: 0
                     }
 
-                    Axios.post(`${ApiUrl}/register`, loginData)
-                    localStorage.setItem('login', loginData.login);
-                    // document.location.href = '/';
+                    Axios.post(`${ApiUrl}/register`, loginData).then(() => {
+                        localStorage.setItem('login', loginData.login);
+                        document.location.href = '/';
+                    })
+
 
         }
 
