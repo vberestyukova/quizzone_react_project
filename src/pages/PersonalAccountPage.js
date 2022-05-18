@@ -23,11 +23,15 @@ function PersonalAccountPage() {
             const quizCountUser = data.quizCount;
             const userName = data.name;
             let idCase = [];
+            console.log(favouriteCategory.length)
             // const categories = new Map ();
-            for (let i=0; i<favouriteCategory.length; i++) {
-                let id = categories.get(favouriteCategory[i]);
-                idCase.push(id)
+            if (favouriteCategory !==[]) {
+                for (let i=0; i<favouriteCategory.length; i++) {
+                    let id = categories.get(favouriteCategory[i]);
+                    idCase.push(id)
+                }
             }
+
 
             // console.log(idCase)
             // console.log(favouriteCategory)
