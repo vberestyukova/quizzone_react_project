@@ -12,12 +12,14 @@ class Registration extends Component{
             passwordCheck: true,
             passwordRepeat: '',
             passwordRepeatCheck: true,
+            emailCheck: true
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.showHidePassword = this.showHidePassword.bind(this);
         this.showHidepasswordRepeat = this.showHidepasswordRepeat.bind(this);
         this.checkPassword = this.checkPassword.bind(this);
+        this.checkEmail = this.checkEmail.bind(this);
     }
 
     showHidePassword(){
@@ -78,6 +80,19 @@ class Registration extends Component{
         })
     }
 
+    checkEmail(event) {
+        let checkEmail = /[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+/;
+        this.setState({passwordRepeat: event.target.value});
+        function checkeMailFunc() {
+            if (checkEmail.test(event.target.value) === false) { return false }
+            return true
+        }
+        this.setState({
+            emailCheck: checkeMailFunc()
+        })
+        console.log(this.state.emailCheck)
+    }
+
 
     handleSubmit(event) {
         event.preventDefault();
@@ -106,7 +121,13 @@ class Registration extends Component{
                 <div className='login'>
                     <form onSubmit={this.handleSubmit}>
                         <div id="login" className='text-area-register'>Логин</div>
-                        <input type='email' placeholder="Введите Email" required ref={node => (this.inputLogin = node)} className='input'/>
+                        <input type='email' onChange={this.checkEmail} placeholder="Введите Email" required ref={node => (this.inputLogin = node)} className='input'/>
+                        {this.state.emailCheck === false && (
+                            <div className='error-password'>Введите email вида user@mail.ru</div>
+                        )}
+                        {(this.state.emailCheck === true && this.state.emailCheck.length !== 0) && (
+                            <div className='correct-password'>Email подходит</div>
+                        )}
                         <div id="name" className='text-area-register'>Имя пользователя</div>
                         <input type='text' placeholder="Введите имя"  required ref={node => (this.inputName = node)} className='input'/>
 
