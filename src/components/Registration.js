@@ -91,7 +91,7 @@ class Registration extends Component{
 
                     Axios.post(`${ApiUrl}/register`, loginData)
                     localStorage.setItem('login', loginData.login);
-                    document.location.href = '/';
+                    // document.location.href = '/';
 
         }
 
