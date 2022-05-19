@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 import '../App.css';
-import {useState, useEffect} from "react";
+import {useState} from "react";
 
 export const Header = () => {
     const [count, setCount] = useState(0);

@@ -28,7 +28,7 @@ class Login extends Component{
 
     showHidePassword(){
         let input = document.getElementById("password-input");
-        if (input.getAttribute('type') == 'password') {
+        if (input.getAttribute('type') === 'password') {
             input.classList.add('view');
             input.setAttribute('type', 'text');
         } else {
@@ -48,7 +48,7 @@ class Login extends Component{
                         <div id="password" className='text-area-register'>Пароль</div>
                         <div className='input-password'>
                             <input type='password'  id="password-input" placeholder="Введите пароль" required ref={node => (this.inputPassword = node)} className='input'/>
-                            <a href="#" className="password-control" onClick={this.showHidePassword}></a>
+                            <a href="#" className="password-control" onClick={this.showHidePassword} />
                         </div>
                         <div>
                             <button type="submit" className='input-button'>Вход</button>

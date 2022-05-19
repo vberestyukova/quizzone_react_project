@@ -25,7 +25,7 @@ function Rating() {
     let preparedRates = [];
     let i = 1;
     for (const rate of rates) {
-        preparedRates.push(<div key={rate._id}>{i}. {rate.name} - {Math.round(rate.meanScore)}</div>);
+        preparedRates.push(<div key={rate._id} className='rating-account'>{i}. {rate.name} - {Math.round(rate.meanScore)}</div>);
         i = i + 1;
     }
 

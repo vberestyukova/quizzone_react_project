@@ -4,7 +4,6 @@ import CatalogItem from "./CatalogItem";
 import Axios from "axios";
 import {ApiUrl} from "../App";
 import {Link} from "react-router-dom";
-import {ButtonLogin} from "../components/Buttons/Buttons";
 
 export const categories = new Map (
     [
@@ -37,12 +36,12 @@ function Catalog() {
 
     let cards = [];
     const keys = categories.keys();
-    console.log(keys)
+
     for (const key of keys) {
         let id = categories.get(key);
         cards.push(<CatalogItem categoryName={key} categoryId={id} key={id}/>);
     }
-    console.log(cards)
+
     return (
         <div className='catalog'>
             {localStorage.getItem('login') === null && (
@@ -55,8 +54,6 @@ function Catalog() {
                     <div className='card-list'>
                         {cards}
                     </div>
-
-
         </div>
     )
 }

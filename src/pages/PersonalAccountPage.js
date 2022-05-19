@@ -23,19 +23,13 @@ function PersonalAccountPage() {
             const quizCountUser = data.quizCount;
             const userName = data.name;
             let idCase = [];
-            // console.log(favouriteCategory.length)
-            // const categories = new Map ();
+
             if (favouriteCategory) {
                 for (let i=0; i<favouriteCategory.length; i++) {
                     let id = categories.get(favouriteCategory[i]);
                     idCase.push(id)
                 }
             }
-
-
-            // console.log(idCase)
-            // console.log(favouriteCategory)
-
             if (scoreUser===undefined) showScore(0);
             else showScore(scoreUser)
             getQuizCount(quizCountUser);
@@ -45,30 +39,17 @@ function PersonalAccountPage() {
 
         })
     }, [])
-    console.log(favouriteCategoriesId);
-    console.log(favouriteCategories);
+
     let cards = [];
 
     for (let j=0; j< favouriteCategories.length; j++) {
-        cards.push(<CatalogItem categoryName={favouriteCategories[j]} categoryId={favouriteCategoriesId[j]} key={favouriteCategoriesId[j]}/>)
+        cards.push(
+            <CatalogItem
+            categoryName={favouriteCategories[j]}
+            categoryId={favouriteCategoriesId[j]}
+            key={favouriteCategoriesId[j]}/>
+        )
     }
-    // let categoriesMap = new Map();
-    // for (const key of favouriteCategories) {
-    //
-    //     let id = categories.get(key);
-    //     categoriesMap.set(key, id)
-    //     // console.log(categoriesMap)
-    //     // cards.push(<CatalogItem categoryName={key} categoryId={id} key={id}/>);
-    // }
-    //
-    // const keys = categoriesMap.keys();
-    // // console.log(keys);
-    // for (const key of keys) {
-    //     let id = categoriesMap.get(key);
-    //     cards.push(<CatalogItem categoryName={key} categoryId={id} key={id}/>);
-    // }
-    // console.log(cards);
-    // let rating = [];
 
     return (
         <div>
@@ -95,11 +76,6 @@ function PersonalAccountPage() {
                     </div>
                 )}
                 {quizCount === 0 && <div className='account-login'>Вы еще не играли ни в одну игру</div>}
-                {/*{quizCount !==0 && quizCount !== undefined ? (*/}
-                {/*    <div className='account-login'>Твой счет {score/quizCount}</div>*/}
-                {/*) : (*/}
-                {/*    <div className='account-login'>Твой счет 0</div>*/}
-                {/*)}*/}
                 <div className='account-login'>Твои избранные квизы:</div>
             </div>
             <div className='card-list cards-center'>

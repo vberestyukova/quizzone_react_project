@@ -76,6 +76,7 @@ html {
 .menu-icon {
   background-image: url("../public/menu.png");
   /*background-position: 0 -6px;*/
+  cursor: pointer;
   background-repeat: no-repeat;
   height: 75px;
   width: 65px;

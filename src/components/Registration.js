@@ -12,7 +12,8 @@ class Registration extends Component{
             passwordCheck: true,
             passwordRepeat: '',
             passwordRepeatCheck: true,
-            emailCheck: true
+            emailCheck: true,
+            email: ''
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -82,15 +83,14 @@ class Registration extends Component{
 
     checkEmail(event) {
         let checkEmail = /[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+/;
-        this.setState({passwordRepeat: event.target.value});
-        function checkeMailFunc() {
+        this.setState({email: event.target.value});
+        function checkMailFunc() {
             if (checkEmail.test(event.target.value) === false) { return false }
             return true
         }
         this.setState({
-            emailCheck: checkeMailFunc()
+            emailCheck: checkMailFunc()
         })
-        console.log(this.state.emailCheck)
     }
 
 
@@ -107,9 +107,9 @@ class Registration extends Component{
                     Axios.post(`${ApiUrl}/register`, loginData).then(() => {
                         localStorage.setItem('login', loginData.login);
                         document.location.href = '/';
-                    })
-
-
+                    }).catch(function (error) {
+                        alert(' Пользователь с таким email уже существует!');
+                    });
         }
 
 
@@ -125,7 +125,7 @@ class Registration extends Component{
                         {this.state.emailCheck === false && (
                             <div className='error-password'>Введите email вида user@mail.ru</div>
                         )}
-                        {(this.state.emailCheck === true && this.state.emailCheck.length !== 0) && (
+                        {(this.state.emailCheck === true && this.state.email.length !== 0) && (
                             <div className='correct-password'>Email подходит</div>
                         )}
                         <div id="name" className='text-area-register'>Имя пользователя</div>

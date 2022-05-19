@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route, Link, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import QuizPage from "./pages/QuizPage"
 import { MainPage } from "./pages/MainPage"
 import { NotFoundPage } from "./pages/NotFoundPage"

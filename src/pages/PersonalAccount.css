@@ -17,6 +17,8 @@
 .account-login {
     padding-top: 0.5rem;
     font-size: 34px;
+    color: black;
+    opacity: 0.8;
 }
 
 .account-favourite {
@@ -24,7 +26,7 @@
 }
 
 .account-rating {
-background-color: black;
+    background-color: black;
     border-radius: 20px;
     color: #FFFFFF;
     cursor: pointer;
@@ -84,4 +86,9 @@ background-color: black;
 .medal img {
     width: 3rem;
     height: 3rem;
+}
+
+.rating-account {
+    font-size: 23px;
+    padding: 5px;
 }
