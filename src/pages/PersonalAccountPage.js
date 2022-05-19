@@ -62,7 +62,7 @@ function PersonalAccountPage() {
                     </div>
                 )}
 
-                {(quizCount !==0 && score/quizCount > 4 && score/quizCount <6) && (
+                {(quizCount !==0 && score/quizCount > 4 && score/quizCount <=6) && (
                     <div className='medal'>
                         <img src='./medal2.png'/>
                         <div className='account-login'>Твой счет {Math.round(score/quizCount)}</div>
